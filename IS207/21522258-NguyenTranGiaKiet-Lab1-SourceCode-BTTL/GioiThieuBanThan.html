@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/img/IMG_20211122_080042.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Web giới thiệu bản thân</title>
+  </head>
+  <body>
+    <nav>
+      <a href="#first-part">Giới thiệu bản thân</a>
+      <a href="#second-part"> Giao lưu</a>
+    </nav>
+    <div id="first-part">
+      <h1>Giới thiệu bản thân</h1>
+
+      <img src="/img/flutter.png" alt="ảnh thẻ" />
+
+      <h2>Thông tin cơ bản</h2>
+
+      <ul>
+        <li>Tên: Nguyễn Trần Gia Kiệt</li>
+        <li>Năm sinh: 2003</li>
+        <li>Chuyên ngành: Hệ thống thông tin</li>
+      </ul>
+
+      <h2>Sở thích</h2>
+
+      <h3>Món ăn</h3>
+      <ol>
+        <li>Bánh mì ốp la</li>
+        <li>Bánh hỏi thịt luộc</li>
+        <li>Mì xào bò</li>
+      </ol>
+
+      <h3>Thức uống</h3>
+      <ol>
+        <li>Cà phê sữa</li>
+        <li>Cam ép</li>
+      </ol>
+
+      <h3>Giải trí</h3>
+
+      <h4>Trò chơi</h4>
+      <ul>
+        <li>Game</li>
+        <li>Bóng đá</li>
+        <li>Bóng bàn</li>
+      </ul>
+
+      <h4>Bài nhạc yêu thích</h4>
+      <ul>
+        <li>Idolru - Yoasobi</li>
+        <li>Hồng lâu mộng - MCILL</li>
+        <li>Do not touch - MiSaMo</li>
+      </ul>
+
+      <h2>Mục tiêu của bản thân</h2>
+      <table>
+        <tr>
+          <th>Mục tiêu</th>
+          <th>Thời hạn</th>
+          <th>Hoàn thành</th>
+        </tr>
+        <tr>
+          <td>Trung bình điểm môn web đạt 8.0</td>
+          <td>01/02/2024</td>
+          <td>
+            <input type="checkbox"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Tốt nghiệp đúng hạn</td>
+          <td>01/12/2025</td>
+          <td>
+            <input type="checkbox"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Chọn được công ty với vị trí backend developer hoặc Mobile developer
+          </td>
+          <td>05/01/2024</td>
+          <td>
+            <input type="checkbox"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="second-part">
+      <form id="contact">
+        <h1>Gửi thông tin và giao lưu cùng tôi</h1>
+        <label for="f-name">Họ và tên: <label>
+        <input type="text" id="f-name" name="f-name"/>
+        <br><br>
+
+        <label for="f-email">Email: <label>
+        <input type="email" id="f-email" name="f-email"/>
+        <br><br>
+
+        <label for="message">Tin nhắn:</label><br>
+        <textarea name="message" style="width: 50%" id="message" cols="30" rows="10"></textarea>
+        <br><br>
+
+        <label for="gender">Giới tính</label><br>
+        <label>
+          <input type="radio" name="gender" id="gender-male" value="male"> Nam
+        </label>
+        <label>
+          <input type="radio" name="gender" id="gender-female" value="female"> Nữ
+        </label>
+        <br><br>
+
+        <label for="Hobby">Sở thích: </label> <br>
+        <label>
+          <input type="checkbox" id="hobby-chk" name = "Hobby" value="music"> Nghe nhạc
+        </label>
+        <label>
+          <input type="checkbox" id="hobby-chk" name = "Hobby" value="swimming"> Bơi lội
+        </label>
+        <label>
+          <input type="checkbox" id="hobby-chk" name = "Hobby" value="sea"> Biển
+        </label>
+        <br><br>
+
+        <label>Ngành: </label>
+        <select id="major">
+            <option value="khmt">Khoa học máy tính</option>
+            <option value="ktmt">Kỹ thuật máy tính</option>
+            <option value="cntt">Công nghệ thông tin</option>
+            <option value="httt">Hệ thống thông tin</option>
+            <option value="mmt">Mạng máy tính và truyển thông</option>
+            <option value="ktpm">Kỹ thuật phần mềm</option>
+            <option value="tmdt">Thương mại điện tử</option>
+            <option value="khdl">Khoa học dữ liệu</option>
+            <option value="attt">An toàn thông tin</option>
+          </select>
+          <br><br>
+        
+      <button type="button">Gửi</button>
+      </form>
+    </div>
+    <footer>
+      <p>@2023 21522258 Nguyễn Trần Gia Kiệt</p>
+    </footer>
+  </body>
+</html>
+
+

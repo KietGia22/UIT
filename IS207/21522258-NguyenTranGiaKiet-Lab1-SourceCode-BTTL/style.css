@@ -1,0 +1,88 @@
+* {
+  margin: 5px;
+}
+
+#first-part {
+  background-color: #f3fde8;
+}
+
+#second-part {
+  background-image: url(/img/desktop-wallpaper.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  text-align: center;
+}
+
+h1 {
+  color: #caedff;
+}
+
+#first-part > img {
+  display: block;
+  margin: auto;
+  width: 25%;
+}
+
+h2 {
+  color: #d8b4f8;
+}
+
+h3 {
+  color: #ffc7ea;
+}
+
+h4 {
+  color: yellowgreen;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: 24px;
+  -webkit-text-stroke: 0.75px #000;
+  font-weight: bold;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+form > label {
+  font-size: 20px;
+}
+
+footer {
+  background-color: #d4f2f4;
+}
+
+footer > p {
+  font-size: 24px;
+  padding: 10px;
+  color: #0b0848;
+  text-align: center;
+}
+
+nav {
+  background-color: #d4f2f4;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  font-size: 24px;
+}
+
+a {
+  color: #0b0848;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 10px;
+  margin: 5px;
+}
+
+a:hover {
+  color: rgb(12, 87, 87);
+}
