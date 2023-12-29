@@ -1,0 +1,16 @@
+﻿@inject IHttpContextAccessor contxt;
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+@if (ViewBag.LoginFail != null)
+{
+    <h3>@ViewBag.LoginFail</h3>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

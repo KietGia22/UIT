@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\KIET's Folder\CODE\UIT\Third_year\Semester 1\IS220_Buliding_application_on_frameworks\Practice\LabUniversity\Lab5\Lab5\Lab5
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Error_main.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JfbWFpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,12 +28,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Home/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Shared/ViewLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFZpZXdMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Shared/_LayoutLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/KIET's Folder/CODE/UIT/Third_year/Semester 1/IS220_Buliding_application_on_frameworks/Practice/LabUniversity/Lab5/Lab5/Lab5/Views/Shared/_ValidationScriptsPartial.cshtml]

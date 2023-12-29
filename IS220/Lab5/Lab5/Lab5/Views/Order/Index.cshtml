@@ -1,0 +1,253 @@
+﻿@model IEnumerable<Lab5.Models.OrderViewModel>
+@inject IHttpContextAccessor contxt;
+
+@{
+    Layout = "_LayoutLogin";
+}
+@{
+    ViewData["Title"] = "Đặt món";
+}
+@{
+    <h2>Xin chào, @contxt.HttpContext.Session.GetString("name")</h2>
+    <hr />
+    <div>
+        <div class="d-flex justify-content-between">
+            <form class="ml-auto">
+                Đồ ăn và thức uống:
+                <div class="form-group">
+                    <br />
+                    <select id="FoodMAMA" name="MAMA" class="form-control">
+                        @if (ViewBag.Food != null)
+                        {
+                            @foreach (var item in ViewBag.Food)
+                            {
+                                <option value="@item.MAMA">@item.TENMA</option>
+                            }
+                        }
+                        else
+                        {
+                            <p>Không tìm thấy</p>
+                        }
+                    </select>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Thêm món ăn, thức uống" class="btn btn-primary" />
+                </div>
+            </form>
+
+            <form class="mx-auto">
+                Topping:
+                <div class="form-group"> 
+                    <br />
+                    <select id="ToppingMAMA" name="MAMA" class="form-control">
+                        @if (ViewBag.Food != null)
+                        {
+                            @foreach (var item in ViewBag.Topping)
+                            {
+                                <option value="@item.MAMA">@item.TENMA</option>
+                            }
+                        }
+                        else
+                        {
+                            <p>Không tìm thấy</p>
+                        }
+                    </select>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Thêm Topping" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <form class="datmon">
+        <div id="infoContainer" class="mt-3">
+            <!-- Bảng để hiển thị thông tin sản phẩm -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Thông tin</th>
+                        <th>Tên món ăn</th>
+                        <!-- Thêm cột mới cho tổng tiền tạm thời -->
+                        <th>Đơn giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dòng sẽ được thêm vào đây -->
+                </tbody>
+            </table>
+        </div>
+        <div id="totalTemporaryAmount">Tổng tiền tạm thời: 0</div>
+        <br />
+        <label for="note">Ghi chú:</label>
+        <textarea id="note" name="note" rows="4" class="form-control"></textarea>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Đặt món" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let tongTienTamThoi = 0;
+            let MonAn = [];
+            let MonAnKem = [];
+            let currMonAn = 0;
+            document.querySelector("form.ml-auto").addEventListener("submit", function (e) {
+                e.preventDefault();
+                let selectedFood = document.querySelector("#FoodMAMA").value;
+                currMonAn = selectedFood;
+                let food = {idFood: selectedFood, quantity: 1}
+                let existingFoodIndex = MonAn.findIndex(item => item.idFood === selectedFood);
+                console.log(existingFoodIndex)
+                if (existingFoodIndex == -1) {
+                    MonAn.push(food)
+                }
+                else{
+                    
+                    MonAn[existingFoodIndex].quantity++;
+                }
+                console.log(MonAn)
+                console.log(currMonAn)
+                getInfo(selectedFood, "food");
+            });
+
+            document.querySelector("form.mx-auto").addEventListener("submit", function (e) {
+                e.preventDefault(); 
+                let selectedTopping = document.querySelector("#ToppingMAMA").value;
+                let food = { idMonChinh: currMonAn, idTopping: selectedTopping , quantity: 1 }
+                let existingFoodIndex = MonAn.findIndex(item => item.idTopping === selectedTopping);
+                console.log(existingFoodIndex)
+                if (existingFoodIndex == -1) {
+                    MonAnKem.push(food)
+                }
+                else {
+
+                    MonAnKem[existingFoodIndex].quantity++;
+                }
+                console.log(MonAnKem)
+                console.log(currMonAn)
+                getInfo(selectedTopping, "topping");
+            });
+
+            function getInfo(selectedValue, type) {
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "/Order/GetInfo", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        let data = JSON.parse(xhr.responseText);
+                        console.log(data);
+                        let existingRow = findExistingRow(data.mama);
+                        if (existingRow) {
+                            let soLuongInput = existingRow.querySelector(".soLuongInput");
+                            soLuongInput.value = parseInt(soLuongInput.value) + 1;
+                            tongTienTamThoi += calculateTotal(data.dongia, parseInt(soLuongInput.value));
+                        } else {
+                            let newRow = createNewRow(data);
+                            tongTienTamThoi += calculateTotal(data.dongia, 1);
+                        }
+                        updateTotalTemporaryAmount();
+                    }
+                };
+                xhr.send("value=" + encodeURIComponent(selectedValue) + "&itemType=" + encodeURIComponent(type));
+            }
+
+            function findExistingRow(mama) {
+                let rows = document.querySelectorAll("#infoContainer tbody tr");
+                for (let i = 0; i < rows.length; i++) {
+                    let mamaCell = rows[i].querySelector("td:first-child");
+                    if (mamaCell.textContent === mama) {
+                        return rows[i];
+                    }
+                }
+                return null;
+            }
+
+            function createNewRow(data) {
+                let newRow = document.createElement("tr");
+                let mamaCell = document.createElement("td");
+                mamaCell.textContent = data.mama;
+                let tenmaCell = document.createElement("td");
+                tenmaCell.textContent = data.tenma;
+                let dongiaCell = document.createElement("td");
+                dongiaCell.textContent = data.dongia;
+
+                let soLuongCell = document.createElement("td");
+                let soLuongInput = document.createElement("input");
+                soLuongInput.type = "number";
+                soLuongInput.className = "soLuongInput";
+                soLuongInput.value = 1;
+                soLuongInput.min = 1;
+                soLuongCell.appendChild(soLuongInput);
+
+                newRow.appendChild(mamaCell);
+                newRow.appendChild(tenmaCell);
+                newRow.appendChild(dongiaCell);
+                newRow.appendChild(soLuongCell);
+
+                let tongTienCell = document.createElement("td");
+                tongTienCell.textContent = calculateTotal(data.dongia, soLuongInput.value);
+                newRow.appendChild(tongTienCell);
+
+                let tableBody = document.querySelector("#infoContainer tbody");
+                tableBody.appendChild(newRow);
+
+                soLuongInput.addEventListener("change", function () {
+                    let newQuantity = parseInt(this.value);
+                    tongTienTamThoi += calculateTotal(data.dongia, newQuantity);
+                    updateTotalTemporaryAmount();
+                });
+
+                return newRow;
+            }
+
+            function calculateTotal(price, quantity) {
+                return price * quantity;
+            }
+
+            function updateTotalTemporaryAmount() {
+                let totalTemporaryAmountCell = document.querySelector("#totalTemporaryAmount");
+                tongTienTamThoi = 0;
+                let rows = document.querySelectorAll("#infoContainer tbody tr");
+                for (let i = 0; i < rows.length; i++) {
+                    let soLuongInput = rows[i].querySelector(".soLuongInput");
+                    let dongiaCell = rows[i].querySelector("td:nth-child(3)");
+                    tongTienTamThoi += calculateTotal(parseFloat(dongiaCell.textContent), parseInt(soLuongInput.value));
+                }
+                totalTemporaryAmountCell.textContent = "Tổng tiền tạm thời: " + tongTienTamThoi;
+                console.log(typeof(tongTienTamThoi));
+            }
+
+            document.querySelector("form.datmon").addEventListener("submit", async function (e) {
+                e.preventDefault();
+                dataToSend = {
+                    MonAn: MonAn,
+                    MonAnKem: MonAnKem,
+                    Total: tongTienTamThoi
+                };
+
+                const response = await fetch("Order/PlaceOrder", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(dataToSend)
+                });
+
+                console.log(tongTienTamThoi);
+            });
+
+
+        });
+    </script>
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

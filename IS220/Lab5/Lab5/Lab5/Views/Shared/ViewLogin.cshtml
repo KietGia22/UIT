@@ -1,0 +1,16 @@
+﻿@inject IHttpContextAccessor contxt;
+
+@{
+    Layout = "_LayoutLogin";
+}
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1 class="text-center">Mời bạn chọn chức năng trên thanh taskbar</h1>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

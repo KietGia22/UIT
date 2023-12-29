@@ -1,0 +1,63 @@
+﻿@model Lab5.Models.AccountKH
+
+@{
+    ViewData["Title"] = "Register";
+}
+@{
+    <h1>Nhập thông tin khách hàng</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="HO" placeholder="Họ" class="form-control" />
+                    <span asp-validation-for="HO" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input asp-for="TEN" placeholder="Tên" class="form-control" />
+                    <span asp-validation-for="TEN" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input asp-for="NGAYSINH" placeholder="Ngày sinh" class="form-control" />
+                    <span asp-validation-for="NGAYSINH" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input asp-for="DIACHI" placeholder="Địa chỉ" class="form-control" />
+                    <span asp-validation-for="DIACHI" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input asp-for="SDT" placeholder="Số điện thoại" type="tel" class="form-control" />
+                    <span asp-validation-for="SDT" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input asp-for="USERNAME" placeholder="username" class="form-control" />
+                    <span asp-validation-for="USERNAME" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="password" placeholder="mật khẩu" asp-for="PASSWORD" class="form-control" />
+                    <span asp-validation-for="PASSWORD" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+@if (ViewBag.LoginFail != null)
+{
+    <h3>@ViewBag.LoginFail</h3>
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

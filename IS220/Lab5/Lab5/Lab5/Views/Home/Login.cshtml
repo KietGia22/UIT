@@ -1,34 +1,36 @@
 ﻿@model Lab5.Models.Account
+@inject IHttpContextAccessor contxt;
 
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Đăng nhập";
 }
-
-<h1>Login</h1>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="USERNAME" class="control-label"></label>
-                <input asp-for="USERNAME" class="form-control" />
-                <span asp-validation-for="USERNAME" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PASSWORD" class="control-label"></label>
-                <input type="password" asp-for="PASSWORD" class="form-control" />
-                <span asp-validation-for="PASSWORD" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
-            </div>
-        </form>
+@{
+    <h1>Đăng nhập</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="USERNAME" placeholder="username" class="form-control" />
+                    <span asp-validation-for="USERNAME" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="password" placeholder="mật khẩu" asp-for="PASSWORD" class="form-control" />
+                    <span asp-validation-for="PASSWORD" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+}
 @if (ViewBag.LoginFail != null)
 {
     <h3>@ViewBag.LoginFail</h3>
