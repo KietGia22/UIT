@@ -12,7 +12,7 @@
     $i = 0;
     while($row = $rs->fetch_row()){
         $i += 1;
-        echo "<tr><td>$i</td><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td></tr>";
+        echo "<tr><td>$i</td><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td></tr>";
     }
     echo "</table>";
 ?>
