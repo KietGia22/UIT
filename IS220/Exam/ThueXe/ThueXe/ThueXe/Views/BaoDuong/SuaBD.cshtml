@@ -1,0 +1,14 @@
+﻿@model BaoDuong
+<form action="UpdateBD">
+    <input type="hidden" name="MaCNOld" value="@Model.MABD" />
+    <br/>
+    <label>Ngày nhận xe</label>
+    <input type="date" name="NGAYNHAN" value="@Model.NGAYNHAN" disabled /></br>
+    <label>Ngày trả xe</label>
+    <input type="date" name="NGAYTRA"/></br>
+    <label>Nội dung</label>
+    <input type="text" name="NOIDUNG" value="@Model.NOIDUNG" disabled/></br>
+    <label>Số km</label>
+    <input type="text" name="SOKM" value="@Model.SOKM" disabled/></br>
+    <input type="submit" name="Submit" value="Update"></input>
+</form>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Playlist.Models.NguoiNghe>
+<select id="NgNghe" name="MaNN">
+    @foreach (var item in ViewBag.result)
+    {
+        <option value="@item.mann">@item.tennn</option>
+    }
+</select>
+<button class="btn_LietKe">Liệt Kê</button>
+<div class="dspl"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".btn_LietKe").click(function () {
+            var mann = $("#NgNghe").val();
+            console.log(mann);
+            $.ajax({
+                url: "/PlayList/LietKePLNN",
+                method: "post",
+                data: { MaNN: mann },
+                success: function (data) {
+                    $(".dspl").html(data)
+                }
+            })
+        })
+    })
+</script>

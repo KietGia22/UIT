@@ -1,0 +1,13 @@
+﻿<table class="table table-bordered">
+    <tr>
+        <th>Tên Bài Hát</th>
+        <th>Tên Ca Sĩ</th>
+    </tr>
+    @foreach(var item in ViewBag.thongtin)
+    {
+        <tr>
+            <td>@item.tenbh</td>
+            <td>@item.tencs</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.chitiethoadon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+body {
+  padding: 20px;
+}
+th,
+td {
+  padding: 10px;
+}
+
+.liElement-formGroup {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.formgroup {
+  display: flex;
+  gap: 20px;
+}
+.formgroup > h1 {
+  min-width: 200px;
+}
+
+.litext {
+  font-size: 15px;
+}

@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model IEnumerable<Covid19.Models.CongNhan>
+<table class="table table-bordered">
+    <tr>
+        <th>Mã công nhân</th>
+        <th>Tên công nhân</th>
+        <th>Chức nănng</th>
+    </tr>
+    @foreach (var item in ViewBag.result)
+    {
+        <tr>
+            <td>@item.macn</td>
+            <td>@item.tencn</td>
+            <td>
+                <a href="javascript:void(0)" class="btn_delete">Delete</a>
+                <a href="/CongNhan/ViewCongNhan?MaCongNhan=@item.macn">View</a>
+                <input type="hidden" class="MaCongNhan" value="@item.macn"></input>
+            </td>
+        </tr>
+    }
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".btn_delete").click(function () {
+            var parent = $(this).parents('tr');
+            var MaCongNhan = $(this).parent().find(".MaCongNhan").val();
+            console.log(MaCongNhan);
+            $.ajax({
+                url: "/CongNhan/XoaCongNhan",
+                method: "post",
+                data: { MaCongNhan: MaCongNhan },
+                success: function (data) {
+                    parent.remove();
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-action="submitEdit">
+    Mã hành khách <input value=@ViewBag.mahk readonly name="mahk"/>
+    Tên hành khách <input value=@ViewBag.name />
+    Loại ghế 
+    <select name="loaighe">
+        <option value=true>vip</option>
+        <option value=false>thường</option>
+    </select>
+    Số ghế <input name="soghe" />
+    <input hidden name="mach" value=@ViewBag.mach />
+    <button>Sửa</button>
+</form>

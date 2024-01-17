@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Covid19.props" />
+</Project>

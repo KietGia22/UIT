@@ -1,0 +1,79 @@
+-----------------Store
+
+HMSET store:1 name_st "Ttech Quan 1" address "25A Mai Thi Luu, phuong Da Kao, Quan 1, Thanh pho Ho Chi Minh" sdt "0123789456"
+HMSET store:2 name_st "Ttech Thu Duc" address 34A Duong So 12, phuong Truong Tho, Thanh pho Thu Duc, Thanh pho Ho Chi Minh" sdt "0147963852"
+HMSET store:2 name_st "Ttech Binh Thanh" address "243A Nguyen Thuong Hien, Quan Binh Thanh, Thanh pho Ho Chi Minh" sdt "0369784512"
+
+LPUSH Store store:1 store:2 store:3
+
+----------------Category
+
+HMSET cate:1 category_name "Dien thoai"
+HMSET cate:2 category_name "Tablet"
+HMSET cate:3 category_name "laptop"
+
+LPHUSH Category cate:1 cate:2 cate:3
+
+------------------Supplier
+
+HMSET supp:1 supplier_name "The gioi di dong"
+HMSET supp:2 supplier_name "FPT Shop"
+HMSET supp:3 supplier_name "Phong Vu"
+
+LPUSH Supplier supp:1 supp:2 supp:3
+
+------------------Product
+
+HMSET product:1 name_pr "Iphone 15" price "31999000" detail "none" supplier_id supp:1 category_id cate:1 quantity 50
+HMSET product:2 name_pr "Samsung ZFlip 5" price "16090000" detail "none" supplier_id supp:2 category_id cate:1 quantity 50
+HMSET product:3 name_pr "MSI GF63 Thin 11UC-444VN" price "13490000" detail "none" supplier_id supp:3 category_id cate:3 quantity 50
+HMSET product:4 name_pr "Samsung Galaxy Tab S9" price "9990000" detail "none" supplier_id supp:1 category_id cate:2 quantity 50
+HMSET product:5 name_pr "Samsung Galaxy Tab S9+" price "21990000" detail "none" supplier_id supp:1 category_id cate:2 quantity 50
+
+LPUSH products product:1 product:2 product:3 product:4 product:5 
+
+-----------------------User
+
+HMSET user:1 name "Nguyen Tran Gia Kiet" email "ntgkiet@gmail.com" phone "0387518892" gender "nam" role "admin"
+HMSET user:2 name "Thi Thanh Cong" email "congthanhthi@gmail.com" phone "0951753486" gender "nam" role "admin"
+HMSET user:3 name "Cao Hoai Sang" email "chsang@gmail.com" phone "0751953684" gender "nam" role "admin"
+HMSET user:4 name "Tran Thanh Tin" email "tinthanh@gmail.com" phone "0153789455" gender "nam" role "admin"
+HMSET user:5 name "Nguyen Thi Thuy" email "thithuy@gmail.com" phone "0931475742" gender "nu" role "client"
+HMSET user:6 name "Nguyen Thi Kieu Oanh" email "oanhnguyen@gmail.com" phone "0167114889" gender "nu" role "client"
+HMSET user:7 name "Tran Thi Le Na" email "lenatiktok@gmail.com" phone "0245966434" gender "nu" role "client"
+HMSET user:8 name "Lu Tien Toan" email "celano340@gmail.com" phone "0921442131" gender "nam" role "client"
+HMSET user:9 name "Ha Thuc Uyen" email "chanhleokt@gmail.com" phone "0741331776" gender "nu" role "client"
+HMSET user:10 name "Bui Thi Hong Uyen" email "hoangbui@gmail.com" phone "0992459644" gender "nu" role "client"
+
+LPUSH User user:1 user:2 user:3 user:4 user:5 user:6 user:7 user:8 user:9 user:10
+
+-----------------------Order
+
+HMSET order:1:user5 user_id user:5 create_order_at "12/12/2023" store_id store:1 total 16090000
+HMSET order:2:user6 user_id user:6 create_order_at "12/12/2023" store_id store:2 total 45489000
+HMSET order:3:user7 user_id user:7 create_order_at "12/12/2023" store_id store:1 total 9990000
+HMSET order:4:user8 user_id user:8 create_order_at "12/12/2023" store_id store:3 total 21990000
+
+LPUSH orderOfUser5 order:1:user5
+LPUSH orderOfUser6 order:2:user6
+LPUSH orderOfUser7 order:3:user7
+LPUSH orderOfUser8 order:4:user8
+
+
+-----------------------------Order_detail
+
+HMSET ordDe:1:order1 product_id product:2 price 16090000 quantity_pr 1
+HMSET ordDe:1:order2 product_id product:1 price 31999000 quantity_pr 1
+HMSET ordDe:2:order2 product_id product:3 price 13490000 quantity_pr 1
+HMSET ordDe:1:order3 product_id product:4 price 9990000 quantity_pr 1
+HMSET ordDe:2:order4 product_id product:5 price 21990000 quantity_pr 1
+
+LPUSH ODetailOfOrder1 ordDe:1:order1
+LPUSH ODetailOfOrder2 ordDe:1:order2
+LPUSH ODetailOfOrder2 ordDe:2:order2
+LPUSH ODetailOfOrder3 ordDe:1:order3
+
+
+HSET order:2:user6 total 45489000
+HSET order:3:user7 total 9990000
+HSET order:4:user8 total 21990000

@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["title"] = "Chi Tiết CB";
+}
+
+<h3>Thông tin chuyến bay</h3>
+@if (ViewBag.chuyenbay != null) {
+    <div>
+        Chuyến <input readonly value=@ViewBag.chuyenbay.chuyen>
+        Điểm đi <input readonly value=@ViewBag.chuyenbay.ddi>
+        Điểm đến <input readonly value=@ViewBag.chuyenbay.dden>
+        Ngày bay <input readonly value=@ViewBag.chuyenbay.ngay>
+        Giờ đi <input readonly value=@ViewBag.chuyenbay.gbay>
+        Giờ đến <input readonly value=@ViewBag.chuyenbay.gden>
+        <br>
+        Chỗ thường @ViewBag.gheThuong/@ViewBag.chuyenbay.thuong
+        <br>
+        Chỗ vip @ViewBag.gheVip/@ViewBag.chuyenbay.vip
+        @if (ViewBag.isAdd == null)
+        {
+            <form asp-action="AddMode">
+                <input hidden value="add" name="mode">
+                <input hidden value=@ViewBag.chuyenbay.mach name="mach">
+                <button>Thêm hành khách</button>
+            </form>
+            <table>
+                <tr>
+                    <th>Họ tên hành khách</th>
+                    <th>Điện thoại</th>
+                    <th>Loại ghế</th>
+                    <th>Số ghế</th>
+                    <th>Chức năng</th>
+                </tr>
+                @foreach (var row in ViewBag.hanhkhach)
+                {
+                    <tr>
+                        <td>@row.name</td>
+                        <td>@row.sdt</td>
+                        <td>@(row.loaighe == false ? "ghế thường" : "ghế vip")</td>
+                        <td>@row.soghe</td>
+                        <td>
+                            <form asp-action="delete">
+                                <input name="mach" value=@row.mach hidden>
+                                <input name="mahk" value=@row.mahk hidden>
+                                <button>xoá</button>
+                            </form>
+                            <form asp-action="edit">
+                                <input name="mach" value=@row.mach hidden>
+                                <input name="mahk" value=@row.mahk hidden>
+                                <input name="tenhk" value=@row.name hidden>
+                                <button>Sửa</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <div>
+                
+            <form asp-action="AddCus">
+                    Mã hành khách <input name="mahk">
+                    Tên hành khách <input>
+                    <select name="loaighe">
+                        <option value=false>Thường</option>
+                        <option value=true>Vip</option>
+                    </select>
+                    Số ghế <input name="soghe">
+                    <input hidden value=@ViewBag.chuyenbay.mach name="mach">
+                <button>Thêm hành khách</button>
+            </form>
+            </div>
+        }
+    </div>
+        
+
+}

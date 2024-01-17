@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Số sản phẩm</label><input class="soSP" type="text" />
+    <br />
+    <label>Số tiền trên một sản phẩm</label><input class="soTien" type="text" />
+    <br />
+    <p class="promo">
+      Khuyến mãi: <input type="checkbox" name="promotion" id="" />
+    </p>
+    <br />
+    <button class="btn_tinhtien">Tính tiền</button>
+    <br />
+    <p class="p_total"></p>
+  </body>
+  <script>
+    const SoSP = document.querySelector('.soSP')
+    const soTien = document.querySelector('.soTien')
+    const btn_tinhtien = document.querySelector('.btn_tinhtien')
+    const promo = document.querySelector('.promo input')
+    const p_total = document.querySelector('.p_total')
+
+    btn_tinhtien.addEventListener('click', function () {
+      if (promo.checked) {
+        const total = parseFloat(SoSP.value) * parseFloat(soTien.value) * 0.9
+        p_total.textContent = `Tổng tiền: ${total} đồng`
+      } else {
+        const total = parseFloat(SoSP.value) * parseFloat(soTien.value)
+        p_total.textContent = `Tổng tiền: ${total} đồng`
+      }
+    })
+  </script>
+</html>

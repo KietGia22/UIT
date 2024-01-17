@@ -1,0 +1,27 @@
+﻿
+    Chuyen <input type="text" value="@ViewBag.MACH" disabled />
+    Ngay bay <input type="text" name="NGAY" value="@ViewBag.ChuyenBay.NGAY" disabled />
+    <br />
+    Diem di <input type="text" name="DDI" value="@ViewBag.ChuyenBay.DDI" disabled />
+    Gio di <input type="text" name="GBAY" value="@ViewBag.ChuyenBay.GBAY" disabled />
+    <br />
+    Diem den <input type="text" name="DDEN" value="@ViewBag.ChuyenBay.DDEN" disabled />
+    Gio den <input type="text" name="GDEN" value="@ViewBag.ChuyenBay.GDEN" disabled />
+    <br />
+    Cho vip <input type="text" name="VIP" value="@ViewBag.ChoVip/@ViewBag.ChuyenBay.VIP" disabled />
+    Cho thuong <input type="text" name="THUONG" value="@ViewBag.ChoThuong/@ViewBag.ChuyenBay.THUONG" disabled />
+    <br />
+<form action="Add" method="post">
+    <input type="hidden" name="MACH" value="@ViewBag.MACH"/>
+    Mã hành khách <input type="text" name="MAHK"/>
+    Tên hành khách <input type="text" name="HOTEN"/>
+    <br />
+    Loại ghế
+    <select name="loaighe">
+        <option value=1>vip</option>
+        <option value=0>thường</option>
+    </select>
+    Số ghế <input type="text" name="soghe" />
+    <br />
+    <input type="submit" name="Them" value="Them" />
+</form>

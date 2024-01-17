@@ -1,0 +1,65 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MayBay
+build_property.RootNamespace = MayBay
+build_property.ProjectDir = D:\KIET's Folder\CODE\UIT\CourseMaterials\IS220\Exam\MayBay\MayBay\MayBay\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\KIET's Folder\CODE\UIT\CourseMaterials\IS220\Exam\MayBay\MayBay\MayBay
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/ChuyenBay/Cau2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1eWVuQmF5XENhdTIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/ChuyenBay/ThemKHChoChuyen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1eWVuQmF5XFRoZW1LSENob0NodXllbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/ChuyenBay/ThongTinChuyenBay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1eWVuQmF5XFRob25nVGluQ2h1eWVuQmF5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/ChuyenBay/ViewSua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1eWVuQmF5XFZpZXdTdWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/HanhKhach/Cau1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFuaEtoYWNoXENhdTEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/MayBay/MayBay/MayBay/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-h7v6wc62jv

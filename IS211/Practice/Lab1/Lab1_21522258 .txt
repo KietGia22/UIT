@@ -1,0 +1,210 @@
+BT1 - DE2:
+
+sys/Oracle123456 as sysdba
+
+create user BAITHI IDENTIFIED BY 123456;
+
+SHOW USER
+
+GRANT DBA TO BAITHI;
+
+CONN BAITHI/123456
+
+--CAU1
+
+CREATE TABLE USER1
+(
+  USER_ID INTEGER NOT NULL,
+  USERNAME VARCHAR2(255) NOT NULL,
+  PASS VARCHAR2(255) NOT NULL,
+  REGDAY DATE NOT NULL,
+  NATIONALITY VARCHAR2(255) NOT NULL,
+  PRIMARY KEY (USER_ID)
+);
+
+CREATE TABLE CHANNEL 
+(
+    CHANNELID VARCHAR2(50) NOT NULL,
+    CNAME VARCHAR2(255) NOT NULL,
+    SUBSCRIBES INTEGER NOT NULL,
+    OWNNER INTEGER NOT NULL,
+    CREATEED DATE NOT NULL,
+    PRIMARY KEY (CHANNELID)
+);
+
+CREATE TABLE VIDEO
+(
+    VIDEOID VARCHAR2(50) NOT NULL,
+    TITLE VARCHAR2(255) NOT NULL,
+    DURATION INTEGER NOT NULL,
+    AGE INTEGER NOT NULL,
+    PRIMARY KEY (VIDEOID)
+);
+
+CREATE TABLE SHARE1 
+(
+    VIDEOID VARCHAR2(50) NOT NULL,
+    CHANNELID VARCHAR2(50) NOT NULL
+);
+
+alter SESSION set NLS_DATE_FORMAT = 'DD/MM/YYYY HH24:MI:SS' 
+
+alter table CHANNEL add constraint fk_ch foreign key (OWNNER) references USER1(USER_ID);
+alter table SHARE1 add constraint fk_ch1 foreign key (CHANNELID) references CHANNEL(CHANNELID);
+alter table SHARE1 add constraint fk_v foreign key (VIDEOID) references VIDEO(VIDEOID);
+
+
+--CAU2
+INSERT INTO USER1 (USER_ID, USERNAME, PASS, REGDAY, NATIONALITY) VALUES ('001', 'faptv', '123456abc', '01/01/2014', 'Viet Nam');
+
+INSERT INTO USER1 (USER_ID, USERNAME, PASS, REGDAY, NATIONALITY)
+VALUES ('002', 'kemxoitv', '@147869iii', '05/06/2015', 'Campuchia');
+
+INSERT INTO USER1 (USER_ID, USERNAME, PASS, REGDAY, NATIONALITY)
+VALUES ('003', 'openshare', 'qwertyuiop', '12/05/2009', 'Viet Nam');
+
+INSERT INTO CHANNEL VALUES ('C120', 'FAP TV', 2343, '001', '02/01/2014');
+INSERT INTO CHANNEL VALUES ('C905', 'Kem xoi TV', 1023, '002', '09/07/2016');
+INSERT INTO CHANNEL VALUES ('c357', 'OpenShare Cafe', 5064, '003', '10/12/2010');
+
+INSERT INTO VIDEO VALUES ('V100229', 'FAPtv Com Nguoi Tap 41 - Dot Nhap', 469, 18);
+INSERT INTO VIDEO VALUES ('V211002', 'Kem xoi: Tap 31 - May Kool tinh yeu cua anh', 312, 16);
+INSERT INTO VIDEO VALUES ('V400002', 'Noi tinh yeu ket thuc - Hoang Tuan', 378, 0);
+
+INSERT INTO SHARE1 VALUES ('V100229', 'C905');
+INSERT INTO SHARE1 VALUES ('V211002', 'C120');
+INSERT INTO SHARE1 VALUES ('V400002', 'c357');
+
+--CAU 3
+CREATE OR REPLACE TRIGGER user_regday_DEFAULT
+BEFORE INSERT ON USER1
+FOR EACH ROW
+BEGIN
+  IF :NEW.REGDAY IS NULL THEN
+    :NEW.REGDAY := SYSDATE;
+  END IF;
+END;
+/
+
+--CAU4
+CREATE OR REPLACE TRIGGER channel_create_day_check
+BEFORE INSERT ON CHANNEL
+FOR EACH ROW
+BEGIN
+  SELECT REGDAY INTO v_regday
+    FROM USER1
+    WHERE USER_ID = :NEW.OWNNER;
+
+  IF :NEW.CREATEED < v_regday THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Ngày tạo kênh phải lớn hơn hoặc bằng ngày đăng ký của người dùng sở hữu kênh.');
+  END IF;
+END;
+/
+
+
+---CAU5
+SELECT * FROM VIDEO 
+WHERE AGE >= 16;
+
+---CÂU 6
+SELECT * FROM CHANNEL
+WHERE ROWNUM = 1
+ORDER BY SUBSCRIBES DESC;
+
+---CAU7
+SELECT VIDEO.VIDEOID, COUNT(CHANNELID) AS "SO KENH CHIA SE"
+FROM VIDEO, SHARE1
+WHERE AGE = 18
+AND VIDEO.VIDEOID = SHARE1.VIDEOID
+GROUP BY VIDEO.VIDEOID;
+
+---CAU 8
+SELECT VIDEOID
+FROM SHARE1
+GROUP BY VIDEOID
+HAVING COUNT(CHANNELID) = (SELECT COUNT(CHANNELID) FROM CHANNEL);
+
+
+
+
+
+
+BT2: 
+-Tầm quan trọng của việc phân quyền người dùng
+
+	Phân quyền người dùng là quá trình cấp cho người dùng quyền truy cập vào các đối tượng dữ liệu trong cơ sở dữ liệu. Việc phân quyền người dùng là rất quan trọng vì nó giúp đảm bảo an ninh và tính toàn vẹn của dữ liệu.
+
+	Phân quyền người dùng giúp bảo vệ dữ liệu khỏi bị truy cập trái phép. Khi người dùng chỉ được cấp quyền truy cập vào các đối tượng dữ liệu mà họ cần, thì họ sẽ không thể truy cập vào các đối tượng dữ liệu nhạy cảm.
+
+	Phân quyền người dùng cũng giúp đảm bảo tính toàn vẹn của dữ liệu. Khi người dùng chỉ được cấp quyền truy cập vào các đối tượng dữ liệu mà họ có quyền sửa đổi, thì họ sẽ không thể sửa đổi các dữ liệu mà họ không có quyền.
+
+-Mô tả chi tiết các role thường gặp trong Oracle
+
+Role là một nhóm các đặc quyền được cấp cho người dùng. Role giúp việc cấp quyền cho người dùng trở nên dễ dàng và hiệu quả hơn.
+
+	Dưới đây là mô tả chi tiết các role thường gặp trong Oracle:
+
+	CONNECT: Role này cho phép người dùng kết nối với cơ sở dữ liệu.
+	RESOURCE: Role này cho phép người dùng tạo bảng, view, procedure, function, package, trigger, index,...
+	DBA: Role này cho phép người dùng thực hiện tất cả các thao tác trên cơ sở dữ liệu, bao gồm tạo, xóa, sửa đổi, cấp quyền cho đối tượng dữ liệu.
+
+-Có nên phân quyền DBA cho các người dùng thông thường không? Vì sao?
+
+	Không nên phân quyền DBA cho các người dùng thông thường. Phân quyền DBA cho người dùng thông thường có thể gây ra những rủi ro sau:
+
+		Người dùng có thể thực hiện các thao tác sai hoặc cố ý phá hoại cơ sở dữ liệu.
+		Người dùng có thể truy cập vào các dữ liệu nhạy cảm.
+		Cú pháp tạo role, xóa role, cấp role cho người dùng khác
+
+	Tạo role: CREATE ROLE [role_name] [IDENTIFIED BY [password]];
+	Xóa role: DROP ROLE [role_name];
+	Cấp role cho người dùng khác: GRANT [role_name] TO [user_name];
+
+-Tạo 2 user
+CREATE USER is01 IDENTIFIED BY 123456;
+CREATE USER is02 IDENTIFIED BY 123456;
+
+
+CREATE TABLE is01.table_1 (
+  id NUMBER,
+  name VARCHAR2(255)
+);
+
+CREATE TABLE is01.table_2 (
+  id NUMBER,
+  age NUMBER
+);
+
+CREATE TABLE is01.table_3 (
+  id NUMBER,
+  address VARCHAR2(255)
+);
+
+CREATE TABLE is02.table_1 (
+  id NUMBER,
+  name VARCHAR2(255)
+);
+
+CREATE TABLE is02.table_2 (
+  id NUMBER,
+  age NUMBER
+);
+
+CREATE TABLE is02.table_3 (
+  id NUMBER,
+  address VARCHAR2(255)
+);
+
+
+INSERT INTO is01.table_1 (id, name) VALUES (1, 'John Doe');
+INSERT INTO is01.table_2 (id, age) VALUES (2, 30);
+INSERT INTO is01.table_3 (id, address) VALUES (3, '123 Main Street');
+
+INSERT INTO is02.table_1 (id, name) VALUES (4, 'Jane Doe');
+INSERT INTO is02.table_2 (id, age) VALUES (5, 25);
+INSERT INTO is02.table_3 (id, address) VALUES (6, '456 Elm Street');
+
+GRANT INSERT ON is02.table_1 TO is01;
+GRANT INSERT ON is02.table
+
+

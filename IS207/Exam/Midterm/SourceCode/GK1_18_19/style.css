@@ -1,0 +1,29 @@
+* {
+  padding: 10px;
+  margin: 10px;
+}
+
+/* CSS cho bảng */
+
+.choice-food th,
+.choice-food td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+
+.choice-food th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* CSS cho đầu vào số lượng và giá */
+input[type='number'] {
+  width: 100px;
+  padding: 5px;
+}
+
+/* CSS cho select */
+.food-table {
+  width: 200px;
+}

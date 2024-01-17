@@ -1,0 +1,45 @@
+﻿@model WebApplication1.Models.HanhKhach
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>HanhKhach</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddCustomer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="mahk" class="control-label"></label>
+                <input asp-for="mahk" class="form-control" />
+                <span asp-validation-for="mahk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="hoten" class="control-label"></label>
+                <input asp-for="hoten" class="form-control" />
+                <span asp-validation-for="hoten" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="diachi" class="control-label"></label>
+                <input asp-for="diachi" class="form-control" />
+                <span asp-validation-for="diachi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dienthoai" class="control-label"></label>
+                <input asp-for="dienthoai" class="form-control" />
+                <span asp-validation-for="dienthoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

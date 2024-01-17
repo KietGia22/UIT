@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Tử số</label>
+    <input type="number" id="IDTUSO" />
+    <br />
+    <label>Mẫu số</label>
+    <input type="number" id="IDMAUSO" />
+    <br />
+    <button class="btn_dg">Đơn giản</button>
+    <br />
+    <div id="IDKETQUA">Phân số sau khi đơn giản:</div>
+  </body>
+  <script>
+    let tuso = document.querySelector('#IDTUSO')
+    let mauso = document.querySelector('#IDMAUSO')
+    let btn_dg = document.querySelector('.btn_dg')
+    let ketquaSpan = document.querySelector('#IDKETQUA')
+    let kq = document.createElement('span')
+
+    const UCLN = (a, b) => {
+      if (b == 0) return a
+      return UCLN(b, a % b)
+    }
+
+    btn_dg.addEventListener('click', function (e) {
+      let tuso_input = parseInt(tuso.value)
+      let mauso_input = parseInt(mauso.value)
+      let kq_abs = Math.abs(UCLN(tuso_input, mauso_input))
+      let tuso_rg = tuso_input / kq_abs
+      let mauso_rg = mauso_input / kq_abs
+
+      if (mauso_rg == 0) kq.textContent = 'Lỗi'
+      else if ((tuso_rg > 0 && mauso_rg < 0) || (tuso_rg < 0 && mauso_rg < 0)) {
+        tuso_rg = tuso_rg * -1
+        mauso_rg = mauso_rg * -1
+        kq.textContent = tuso_rg + '/' + mauso_rg
+      } else if (mauso_rg == 1) kq.textContent = tuso_rg
+      else kq.textContent = tuso_rg + '/' + mauso_rg
+      ketquaSpan.appendChild(kq)
+    })
+  </script>
+</html>

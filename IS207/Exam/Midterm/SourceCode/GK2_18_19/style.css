@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  color: black;
+  box-sizing: border-box;
+}
+
+table {
+  display: table;
+  width: 100%;
+}
+
+tr {
+  display: table-row;
+  width: 100%;
+}
+
+td {
+  display: table-cell;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 2px;
+}
+
+td input {
+  padding: 10px;
+}
+
+th {
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.regis {
+  width: 100%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+.btn-regis {
+  padding: 10px;
+}
+
+.a-regis {
+  text-decoration: none;
+  color: black;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.datauser {
+  border: solid 1px black;
+  box-shadow: 5px 10px #888888;
+  background-color: white;
+  margin: 20px;
+}

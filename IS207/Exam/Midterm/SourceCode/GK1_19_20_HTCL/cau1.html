@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label> Hệ số a </label>
+    <input type="text" class="HeSoA" />
+    <br />
+    <label> Hệ số b </label>
+    <input type="text" class="HeSoB" />
+    <br />
+    <label> Hệ số c </label>
+    <input type="text" class="HeSoC" />
+    <br />
+    <button class="KQB2">Kết quả</button>
+    <div class="nghiem-ptr"></div>
+  </body>
+  <script>
+    let SoA = document.querySelector('.HeSoA')
+    let SoB = document.querySelector('.HeSoB')
+    let SoC = document.querySelector('.HeSoC')
+    let divPtr = document.querySelector('.nghiem-ptr')
+    let inKQ = document.createElement('span')
+    let btn_kq = document.querySelector('.KQB2')
+
+    btn_kq.addEventListener('click', (e) => {
+      let a_input = parseFloat(SoA.value)
+      let b_input = parseFloat(SoB.value)
+      let c_input = parseFloat(SoC.value)
+
+      let delta = b_input ** 2 - 4 * (a_input * c_input)
+      if (delta < 0) {
+        inKQ.textContent = 'Phương trình vô nghiệm'
+        divPtr.appendChild(inKQ)
+      } else if (delta == 0) {
+        inKQ.textContent = `Phương trình có 2 nghiệm x1=x2=${
+          -b_input / (2 * a_input)
+        }`
+        divPtr.appendChild(inKQ)
+      } else {
+        delta_sqrt = Math.sqrt(delta)
+        inKQ.textContent = `Phương trình có 2 nghiệm x1=${
+          (-b_input - delta_sqrt) / (2 * a_input)
+        }; x2=${(-b_input + delta_sqrt) / (2 * a_input)}`
+        divPtr.appendChild(inKQ)
+      }
+    })
+  </script>
+</html>

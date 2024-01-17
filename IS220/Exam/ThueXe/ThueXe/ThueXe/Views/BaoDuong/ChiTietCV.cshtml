@@ -1,0 +1,50 @@
+﻿@model List<object>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <label>Ngày nhận xe</label>
+    <input type="date" value="@ViewBag.NgNhan" disabled/>
+    <label>Ngày trả xe</label>
+    <input type="date" value="@(ViewBag.NgTra ?? "")"/>
+    <br />
+    <label>Thành tiền</label>
+    <input type="text" value="@ViewBag.ThanhTien" disabled/>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>Tên công việc</th>
+            <th>Đơn giá</th>
+            <th>Chức năng</th>
+        </tr>
+        @foreach (var item in ViewBag.tbResult)
+        {
+            <tr>
+                <td>@item.tencv</td>
+                <td>@item.dongia</td>
+                <td>
+                    <a href="javascript:void(0)" class="btn_delete">Delete</a>
+                    <input type="hidden" class="MACV" value="@item.macv"></input>
+                </td>
+            </tr>
+        }
+    </table>
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".btn_delete").click(function () {
+            var parent = $(this).parents('tr');
+            var MACV = $(this).parent().find(".MACV").val();
+            console.log(MACV);
+            $.ajax({
+                url: "/BaoDuong/XoaCV",
+                method: "post",
+                data: { MACV: MACV },
+                success: function (data) {
+                    parent.remove();
+                }
+            });
+        });
+    });
+</script>

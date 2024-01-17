@@ -1,0 +1,38 @@
+* {
+  padding: 10px;
+  margin: 10px;
+}
+
+.choice-drink {
+  display: table;
+  width: 100%;
+}
+
+.choice-drink tr {
+  display: table-row;
+}
+
+.choice-drink td {
+  display: table-cell;
+  padding: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.choice-drink th {
+  padding: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.choice-drink th:first-child {
+  width: 10%;
+}
+
+.choice-drink th:nth-child(2) {
+  width: 60%;
+}
+
+.choice-drink th:last-child {
+  width: 30%;
+}

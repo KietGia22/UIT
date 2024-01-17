@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Đăng ký thông tin Thành viên</title>
+  </head>
+  <body>
+    <h1>Form Đăng ký Thông tin Thành viên</h1>
+    <form id="registrationForm">
+      <label for="nickname">Nickname:</label>
+      <input type="text" id="nickname" name="nickname" required /><br />
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required /><br />
+
+      <label for="phone">Số điện thoại di động:</label>
+      <input type="text" id="phone" name="phone" required /><br />
+
+      <label for="password">Mật khẩu:</label>
+      <input type="password" id="password" name="password" required /><br />
+
+      <label for="fullName">Họ tên:</label>
+      <input type="text" id="fullName" name="fullName" required /><br />
+
+      <label for="dob">Ngày sinh:</label>
+      <input
+        type="text"
+        id="dob"
+        name="dob"
+        placeholder="dd/mm/yyyy"
+        required
+      /><br />
+
+      <label for="gender">Giới tính:</label><br />
+      <input type="radio" id="male" name="gender" value="Male" required />
+      <label for="male">Nam</label><br />
+      <input type="radio" id="female" name="gender" value="Female" required />
+      <label for="female">Nữ</label><br />
+
+      <label for="securityQuestion">Câu hỏi bí mật:</label>
+      <select id="securityQuestion" name="securityQuestion" required>
+        <option value="question1">Câu hỏi 1?</option>
+        <option value="question2">Câu hỏi 2?</option>
+        <option value="question3">Câu hỏi 3?</option>
+        <option value="question4">Câu hỏi 4?</option></select
+      ><br />
+
+      <label for="securityAnswer">Đáp án:</label>
+      <input
+        type="text"
+        id="securityAnswer"
+        name="securityAnswer"
+        required
+      /><br />
+
+      <button type="submit">Đăng ký</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    <script src="index.js"></script>
+  </body>
+</html>

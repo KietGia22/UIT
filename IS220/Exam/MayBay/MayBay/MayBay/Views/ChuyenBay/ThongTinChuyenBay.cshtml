@@ -1,0 +1,64 @@
+﻿
+    Chuyen <input type="text" name="MACH" value="@ViewBag.MACH" disabled />
+    Ngay bay <input type="text" name="NGAY" value="@ViewBag.ChuyenBay.NGAY" disabled/>
+    <br />
+    Diem di <input type="text" name="DDI" value="@ViewBag.ChuyenBay.DDI" disabled />
+    Gio di <input type="text" name="GBAY" value="@ViewBag.ChuyenBay.GBAY" disabled />
+    <br />
+    Diem den <input type="text" name="DDEN" value="@ViewBag.ChuyenBay.DDEN" disabled />
+    Gio den <input type="text" name="GDEN" value="@ViewBag.ChuyenBay.GDEN" disabled />
+    <br />
+    Cho vip <input type="text" name="VIP" value="@ViewBag.ChoVip/@ViewBag.ChuyenBay.VIP" disabled />
+    Cho thuong <input type="text" name="THUONG" value="@ViewBag.ChoThuong/@ViewBag.ChuyenBay.THUONG"  disabled />
+    <br />
+<button id="them">
+    <a href="/ChuyenBay/ThemKHCHoChuyen?MACH=@ViewBag.MACH"> Thêm hành khách </a></>
+</button>
+<table class="table table-bordered">
+    <tr>
+        <th>Ho ten khach hang</th>
+        <th>Dien thoai</th>
+        <th>Loai ghe</th>
+        <th>So ghe</th>
+        <th>Chuc nang</th>
+    </tr>
+    @foreach (var item in ViewBag.TTHK)
+    {
+        <tr>
+            <td>@item.hoten</td>
+            <td>@item.dt</td>
+            <td>@(item.lghe == 1 ? "VIP" : "Thuong")</td>
+            <td>@item.sghe</td>
+            <td class="d-flex">
+                <input type="hidden" class="MAHK" value="@item.mahk"></input>
+                <input type="hidden" class="MACH" value="@item.mach"></input>
+                <button class="btn-xoa">Xoá</button>
+                <form action="ViewSua" method="post">
+                    <input type="hidden" name="MAHK" value="@item.mahk"></input>
+                    <input type="hidden" name="MACH" value="@item.mach"></input>
+                    <button class="btn-sua">Sửa</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".btn-xoa").click(function () {
+            var parent = $(this).parents('tr');
+            var MAHK = $(this).parent().find(".MAHK").val();
+            var MACH = $(this).parent().find(".MACH").val();
+            console.log(MAHK);
+            $.ajax({
+                url: "/ChuyenBay/XoaHK",
+                method: "post",
+                data: { MAHK: MAHK, MACH: MACH },
+                success: function (data) {
+                    parent.remove();
+                }
+            });
+        });
+    });
+</script>

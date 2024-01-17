@@ -1,0 +1,14 @@
+﻿<form action="SuaHK" method="post">
+    <input type="hidden" name="MACH" value="@ViewBag.MACH"/>
+    Mã hành khách <input type="text" name="MAHK" value="@ViewBag.MAHK"/>
+    Tên hành khách <input type="text" name="HOTEN" value="@ViewBag.hk.HOTEN" disabled />
+    <br />
+    Loại ghế
+    <select name="loaighe">
+        <option value=1>vip</option>
+        <option value=0>thường</option>
+    </select>
+    Số ghế <input type="text" name="soghe" />
+    <br />
+    <input type="submit" name="Sua" value="Sua" />
+</form>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Đăng nhập và Quên mật khẩu</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <h2 class="title">Đăng nhập</h2>
+        <form id="loginForm">
+          <label for="nickname" class="bold">Nickname:</label>
+          <input type="text" id="nickname" name="nickname" required />
+          <label for="password" class="bold">Mật khẩu:</label>
+          <input type="password" id="password" name="password" required />
+          <button type="submit">Đăng nhập</button>
+          <button type="reset">Làm mới</button>
+        </form>
+        <div class="links">
+          <a href="#" class="bold">Đăng ký</a>
+          <a href="#" class="bold">Quên mật khẩu</a>
+        </div>
+      </div>
+      <div class="form">
+        <h2 class="title">Quên mật khẩu</h2>
+        <form id="forgotPasswordForm">
+          <label for="nickname" class="bold">Nickname:</label>
+          <input
+            type="text"
+            id="forgotNickname"
+            name="forgotNickname"
+            required
+          />
+          <label for="email" class="bold">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="secretQuestion" class="bold">Câu hỏi bí mật:</label>
+          <select id="secretQuestion" name="secretQuestion" required>
+            <option value="question1">Câu hỏi 1</option>
+            <option value="question2">Câu hỏi 2</option>
+            <option value="question3">Câu hỏi 3</option>
+            <option value="question4">Câu hỏi 4</option>
+          </select>
+          <label for="answer" class="bold">Đáp án:</label>
+          <input type="text" id="answer" name="answer" required />
+          <button type="submit">Gửi</button>
+          <button type="reset">Làm mới</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

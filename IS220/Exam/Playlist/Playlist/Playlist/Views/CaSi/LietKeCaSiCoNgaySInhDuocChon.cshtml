@@ -1,0 +1,21 @@
+﻿﻿@{
+    Layout = null;
+}
+<h2>Danh sách ca sĩ</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>STT</th>
+        <th>Tên Ca Sĩ</th>
+    </tr>
+    @{
+        int stt = 1; // Counter variable
+    }
+    @foreach(var item in ViewBag.TCaSi)
+    {
+        <tr>
+            <td>@stt</td>
+            <td>@item.tencs</td>
+        </tr>
+        stt++;
+    }
+</table>

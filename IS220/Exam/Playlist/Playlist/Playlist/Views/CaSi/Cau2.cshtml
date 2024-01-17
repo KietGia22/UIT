@@ -1,0 +1,26 @@
+﻿
+<select id="NamSinh" name="NamSinh">
+    @foreach (var item in ViewBag.NamSinh)
+    {
+        <option value="@item">@item</option>
+    }
+</select>
+<button class="btn_LietKe">Liệt Kê</button>
+<div class="dscs"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".btn_LietKe").click(function () {
+            var namSinh = $("#NamSinh").val();
+            console.log(namSinh);
+            $.ajax({
+                url: "/CaSi/LietKeCaSiCoNgaySinhDuocChon",
+                method: "post",
+                data: { NamSinh: namSinh },
+                success: function (data) {
+                    $(".dscs").html(data)
+                }
+            })
+        })
+    })
+</script>

@@ -1,0 +1,47 @@
+﻿﻿@{
+    Layout = null;
+}
+<h2>Danh sách ca sĩ</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>STT</th>
+        <th>Tên Playlist</th>
+        <th>Chức năng</th>
+    </tr>
+    @{
+        int stt = 1; // Counter variable
+    }
+    @foreach (var item in ViewBag.table)
+    {
+        <tr>
+            <td>@stt</td>
+            <td>
+                <a href="/PlayList/ViewThongTinPlayList?MaPlayList=@item.mapl">@item.tenpl</a>
+            </td>
+            <td>
+                <a href="javascript:void(0)" class="btn_delete">Delete</a>
+                <input type="hidden" class="MaPlayList" value="@item.mapl"></input>
+            </td>
+        </tr>
+        stt++;
+    }
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".btn_delete").click(function () {
+            var parent = $(this).parents('tr');
+            var MaPlayList = $(this).parent().find(".MaPlayList").val();
+            console.log(MaPlayList);
+            $.ajax({
+                url: "/PlayList/XoaPlayList",
+                method: "post",
+                data: { MaPlayList: MaPlayList },
+                success: function (data) {
+                    parent.remove();
+                }
+            });
+        });
+    });
+</script>
+

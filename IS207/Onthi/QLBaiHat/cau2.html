@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Ngay sinh <input type="date" name="" id="NamSinh" />
+    <br />
+    <div id="dscasi"></div>
+
+    <script>
+      const NamSinh = document.querySelector('#NamSinh')
+      NamSinh.addEventListener('change', function (e) {
+        let nam = this.value
+        console.log(nam)
+        let xhr = new XMLHttpRequest()
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            document.querySelector('#dscasi').innerHTML = xhr.responseText
+          }
+        }
+
+        xhr.open('GET', 'lietkecasi.php?NamSinh=' + nam, true)
+        xhr.send()
+      })
+    </script>
+  </body>
+</html>

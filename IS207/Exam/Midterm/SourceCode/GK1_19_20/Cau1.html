@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td,
+      th {
+        border: 1px solid black;
+      }
+
+      table {
+        border: 1px solid black;
+        width: 100%;
+      }
+
+      .gioHang {
+        float: right;
+      }
+
+      .card {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        color: blue;
+        margin-left: 800px;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .block {
+        display: flex;
+        flex: 25%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .block img {
+        width: 150px;
+        height: 150px;
+      }
+
+      #wrap-products {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <th>MSSV: 20521569</th>
+        <th>Họ tên khách hàng: Nguyễn Hữu Long</th>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <a href="./Cau2.html" class="gioHang" id="gioHang"> Giỏ hàng </a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div id="wrap-products"></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+  <script src="index.js"></script>
+</html>

@@ -1,0 +1,65 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Playlist
+build_property.RootNamespace = Playlist
+build_property.ProjectDir = D:\KIET's Folder\CODE\UIT\CourseMaterials\IS220\Exam\Playlist\Playlist\Playlist\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\KIET's Folder\CODE\UIT\CourseMaterials\IS220\Exam\Playlist\Playlist\Playlist
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/CaSi/Cau2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FTaVxDYXUyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/CaSi/LietKeCaSiCoNgaySInhDuocChon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FTaVxMaWV0S2VDYVNpQ29OZ2F5U0luaER1b2NDaG9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/NguoiNghe/Cau3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmd1b2lOZ2hlXENhdTMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/PlayList/LietKePLNN.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUxpc3RcTGlldEtlUExOTi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/PlayList/ViewThongTinPlayList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheUxpc3RcVmlld1Rob25nVGluUGxheUxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/KIET's Folder/CODE/UIT/CourseMaterials/IS220/Exam/Playlist/Playlist/Playlist/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-wszd9q4gea
